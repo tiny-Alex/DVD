@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+
+namespace DVD.Pages
+{
+    /// <summary>
+    /// Логика взаимодействия для AutorizationPage.xaml
+    /// </summary>
+    public partial class AutorizationPage : Page
+    {
+        public AutorizationPage()
+        {
+            InitializeComponent();
+        }
+
+        private void Vhodbtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new MainPage());
+        }
+
+
+        private void Regesrtxb_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            NavigationService.Navigate(new RegisrtationPage());
+        }
+
+        private void Regesrtxb_MouseEnter(object sender, MouseEventArgs e)
+        {
+            Regesrtxb.Foreground = new SolidColorBrush(Colors.White);
+
+        }
+
+        private void Regesrtxb_MouseLeave(object sender, MouseEventArgs e)
+        {
+            Regesrtxb.Foreground = new SolidColorBrush(Colors.DeepPink);
+        }
+    }
+}
