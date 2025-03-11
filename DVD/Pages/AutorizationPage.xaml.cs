@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DVD.Functions;
 using DVD.Connection;
+using System.Net.Security;
 
 namespace DVD.Pages
 {
@@ -22,6 +23,8 @@ namespace DVD.Pages
     /// </summary>
     public partial class AutorizationPage : Page
     {
+        public static Sotrudnik sotrudnik;
+
         public AutorizationPage()
         {
             InitializeComponent();
@@ -34,8 +37,20 @@ namespace DVD.Pages
 
 
         private void Regesrtxb_MouseDown(object sender, MouseButtonEventArgs e)
-        {
+        {  
+            int login = Convert.ToInt32(((TextBox)sender).Text.Trim());
+            string password = Parolpsw.Password.Trim();
+            sotrudnik= Autorization.AuthorisationSotr (login,password);
             NavigationService.Navigate(new RegisrtationPage());
+            if(sotrudnik !=null)
+            {
+                MessageBox.Show("Ура");
+
+            }
+            else
+            {
+                MessageBox.Show("неверный логин или пароль", "error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
 
         private void Regesrtxb_MouseEnter(object sender, MouseEventArgs e)
