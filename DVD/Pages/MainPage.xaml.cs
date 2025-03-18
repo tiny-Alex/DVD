@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;
+using DVD.Connection;
+using DVD.Functions;
 
 namespace DVD.Pages
 {
@@ -20,9 +23,17 @@ namespace DVD.Pages
     /// </summary>
     public partial class MainPage : Page
     {
+         public static ObservableCollection<Film> filmList { get; set; }
         public MainPage()
         {
             InitializeComponent();
+            filmList = ClassFilmFunction.GetFilms();
+            this.DataContext = this;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

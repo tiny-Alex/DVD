@@ -9,38 +9,47 @@
       Title="MainPage" >
 
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
+      
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBox x:Name="txbFind" Grid.Column="4"
-                 Grid.Row="0" Grid.ColumnSpan="5" Height="40"
-                 Width="300" VerticalAlignment="Center" 
-                 Padding=" 5"/>
-        <TextBlock Text="Поиск" FontSize="30" VerticalAlignment="Center"
-                   Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2"
-                   TextAlignment="Center"
-                   Foreground="Fuchsia" FontWeight="Bold" Margin="10"/>
+          <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10">
+           
+            <TextBox x:Name="SearchTextBox" Width="200" Margin="0,0,10,0" Text="Поиск фильма..."/>
+           
+            <ComboBox x:Name="SortComboBox" Width="200" Margin="0,0,10,0" SelectedIndex="0">
+                <ComboBoxItem Content="Сортировка по умолчанию"/>
+                <ComboBoxItem Content="По году выпуска (возрастание)"/>
+                <ComboBoxItem Content="По году выпуска (убывание)"/>
+                <ComboBoxItem Content="По рейтингу (возрастание)"/>
+                <ComboBoxItem Content="По рейтингу (убывание)"/>
+            </ComboBox>
+ 
+            <ComboBox x:Name="FilterComboBox" Width="150" Margin="0,0,10,0" SelectedIndex="0">
+                <ComboBoxItem Content="Все жанры"/>
+                <ComboBoxItem Content="Боевик"/>
+                <ComboBoxItem Content="Драма"/>
+                <ComboBoxItem Content="Комедия"/>
+                <ComboBoxItem Content="Фантастика"/>
+                <ComboBoxItem Content="Ужасы"/>
+            </ComboBox>
+                <Button Content="Поиск" Width="80" Click="Button_Click"/>
+           </StackPanel>
+
+        <ListView Grid.Row="1" Margin="10" x:Name="MoviesListView">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Title}" 
+Width="200"/>
+                    <GridViewColumn Header="Жанр" DisplayMemberBinding="{Binding Genre}" 
+Width="150"/>
+                    <GridViewColumn Header="Год выпуска" DisplayMemberBinding="{Binding Year}" 
+Width="100"/>
+                    <GridViewColumn Header="Рейтинг" DisplayMemberBinding="{Binding Rating}" 
+Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Page>

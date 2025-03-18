@@ -75,5 +75,10 @@ namespace DVD.Pages
             }
             else { MessageBox.Show("Ты дура"); }
         }
+
+        private void CheckCapch_Click_1(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

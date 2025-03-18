@@ -32,17 +32,17 @@ namespace DVD.Pages
 
         private void Vhodbtn_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new MainPage());
+            NavigationService.Navigate(new PageCapcha());
         }
 
 
         private void Regesrtxb_MouseDown(object sender, MouseButtonEventArgs e)
-        {  
+        {  NavigationService.Navigate(new RegisrtationPage());
             int login = Convert.ToInt32(((TextBox)sender).Text.Trim());
             string password = Parolpsw.Password.Trim();
             sotrudnik= Autorization.AuthorisationSotr (login,password);
-            NavigationService.Navigate(new RegisrtationPage());
-            if(sotrudnik !=null)
+            
+            if (sotrudnik !=null)
             {
                 MessageBox.Show("Ура");
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVD.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DVD.Functions;
 
 namespace DVD.Pages
 {
@@ -26,6 +28,22 @@ namespace DVD.Pages
         }
 
         private void RegesrtRegbtn_Click(object sender, RoutedEventArgs e)
+        {
+            string fio = tbFIO.Text.Trim();
+            string fio = tbFIO.Text.Trim();
+            if(tbFIO != null && tbPass != null)
+            {
+                ClassAutorization.RegistrationSotr(fio, phone, pass);
+                System.Windows.MessageBox.Show("регистрация прошла ");
+                NavigationService.Navigate(new AutorizationPage());
+            }
+            else
+            {
+                MessageBox.Show("Укажите фио и пароль нормис");
+            }
+        }
+
+        private void Backbtn_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new AutorizationPage());
         }
