@@ -22,7 +22,8 @@ namespace DVD.Functions
           {
             return new ObservableCollection<Film>(DBconn.conn.Film.Where(x => x.Name.Contains(name)).ToList());
           }
-        public static Film GitFlimInfo(int id)
+        public static Film GitFlimInfo(int id) 
+
         {
             Film selectedFilm = DBconn.conn.Film.Where(filmID => filmID.Id == id).FirstOrDefault();
             Film film = new Film()
