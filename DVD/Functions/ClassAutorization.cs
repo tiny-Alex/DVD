@@ -6,9 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DVD.Functions
 {
-    internal class ClassAutorization
+    public class ClassAutorization
     {
         public static ObservableCollection<Sotrudnik> sotrudniks { get; set; }
         public static void RegistrationSotr (string fio, string phone, string password)
@@ -20,8 +21,8 @@ namespace DVD.Functions
             newSotr.Id_role = 1;
             newSotr.Salary = 25000;
 
-            Connection.Connection.connection.Sotrudnik.Add(newSotr);
-            Connection.Connection.connection.SaveChanges();
+            DBconn.conn.Sotrudnik.Add(newSotr);
+            DBconn.conn.SaveChanges();
         }
     }
 }

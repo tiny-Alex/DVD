@@ -30,10 +30,10 @@ namespace DVD.Pages
         private void RegesrtRegbtn_Click(object sender, RoutedEventArgs e)
         {
             string fio = tbFIO.Text.Trim();
-            string fio = tbFIO.Text.Trim();
+            //string fio = tbFIO.Text.Trim();
             if(tbFIO != null && tbPass != null)
             {
-                ClassAutorization.RegistrationSotr(fio, phone, pass);
+                //ClassAutorization.RegistrationSotr(fio, phone, pass);
                 System.Windows.MessageBox.Show("регистрация прошла ");
                 NavigationService.Navigate(new AutorizationPage());
             }
