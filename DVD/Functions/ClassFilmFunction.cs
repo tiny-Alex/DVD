@@ -9,7 +9,7 @@ using System.Collections.ObjectModel;
 
 namespace DVD.Functions
 {
-    internal class ClassFilmFunction
+     internal class ClassFilmFunction
     {
         public static ObservableCollection<Film> films { get; set; }
         public static ObservableCollection<Film> GetFilms()
@@ -36,3 +36,4 @@ namespace DVD.Functions
         }
     }
 }
+//
